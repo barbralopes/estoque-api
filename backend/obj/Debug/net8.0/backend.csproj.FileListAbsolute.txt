@@ -32,3 +32,9 @@
 /home/blcoelho/Downloads/estoque-api/backend/obj/Debug/net8.0/backend.pdb
 /home/blcoelho/Downloads/estoque-api/backend/obj/Debug/net8.0/backend.genruntimeconfig.cache
 /home/blcoelho/Downloads/estoque-api/backend/obj/Debug/net8.0/ref/backend.dll
+/home/blcoelho/Downloads/estoque-api/backend/bin/Debug/net8.0/DnsClient.dll
+/home/blcoelho/Downloads/estoque-api/backend/bin/Debug/net8.0/MongoDB.Bson.dll
+/home/blcoelho/Downloads/estoque-api/backend/bin/Debug/net8.0/MongoDB.Driver.dll
+/home/blcoelho/Downloads/estoque-api/backend/bin/Debug/net8.0/SharpCompress.dll
+/home/blcoelho/Downloads/estoque-api/backend/bin/Debug/net8.0/Snappier.dll
+/home/blcoelho/Downloads/estoque-api/backend/bin/Debug/net8.0/ZstdSharp.dll
