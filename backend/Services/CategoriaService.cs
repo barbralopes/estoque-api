@@ -1,22 +1,27 @@
+using backend.Data;
 using backend.Models;
-using backend.Configurations;
-using Microsoft.Extensions.Options;
-using MongoDB.Driver;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Services;
 
 public class CategoriaService
 {
-    private readonly IMongoCollection<Categoria> _categoriasCollection;
+    private readonly AppDbContext _context;
 
-    public CategoriaService(
-        IOptions<MongoDbSettings> mongoDbSettings,
-        IMongoClient mongoClient)
+    public CategoriaService(AppDbContext context)
     {
-        var mongoDatabase = mongoClient.GetDatabase(
-            mongoDbSettings.Value.DatabaseName);
+        _context = context;
+    }
 
-        _categoriasCollection = mongoDatabase
-            .GetCollection<Categoria>("categorias");
+    public async Task<List<Categoria>> GetAsync()
+    {
+        return await _context.Categorias.ToListAsync();
+    }
+
+    public async Task CreateAsync(Categoria categoria)
+    {
+        _context.Categorias.Add(categoria);
+
+        await _context.SaveChangesAsync();
     }
 }

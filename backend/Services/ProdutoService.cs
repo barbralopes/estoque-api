@@ -1,29 +1,27 @@
+using backend.Data;
 using backend.Models;
-using backend.Configurations;
-using Microsoft.Extensions.Options;
-using MongoDB.Driver;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Services;
 
 public class ProdutoService
 {
-    private readonly IMongoCollection<Produto> _produtosCollection;
+    private readonly AppDbContext _context;
 
-    public ProdutoService(
-        IOptions<MongoDbSettings> mongoDbSettings,
-        IMongoClient mongoClient)
+    public ProdutoService(AppDbContext context)
     {
-        var mongoDatabase = mongoClient.GetDatabase(
-            mongoDbSettings.Value.DatabaseName);
-
-        _produtosCollection = mongoDatabase
-            .GetCollection<Produto>("produtos");
+        _context = context;
     }
 
     public async Task<List<Produto>> GetAsync()
     {
-        return await _produtosCollection
-            .Find(_ => true)
-            .ToListAsync();
+        return await _context.Produtos.ToListAsync();
+    }
+
+    public async Task CreateAsync(Produto produto)
+    {
+        _context.Produtos.Add(produto);
+
+        await _context.SaveChangesAsync();
     }
 }

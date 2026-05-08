@@ -1,6 +1,6 @@
-using backend.Configurations;
-using MongoDB.Driver;
 using backend.Services;
+using backend.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,20 +10,18 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen();
 
-builder.Services.Configure<MongoDbSettings>(
-    builder.Configuration.GetSection("MongoDbSettings"));
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        ServerVersion.AutoDetect(
+            builder.Configuration.GetConnectionString("DefaultConnection")
+        )
+    )
+);
 
-builder.Services.AddSingleton<ProdutoService>();
-builder.Services.AddSingleton<CategoriaService>();
+builder.Services.AddScoped<ProdutoService>();
 
-builder.Services.AddSingleton<IMongoClient>(sp =>
-{
-    var settings = builder.Configuration
-        .GetSection("MongoDbSettings")
-        .Get<MongoDbSettings>();
-
-    return new MongoClient(settings!.ConnectionString);
-});
+builder.Services.AddScoped<CategoriaService>();
 
 var app = builder.Build();
 

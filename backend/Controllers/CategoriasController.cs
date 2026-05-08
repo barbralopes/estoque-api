@@ -11,4 +11,5 @@ public class CategoriasController : ControllerBase
     {
         return Ok("API Categorias funcionando");
     }
+    
 }
