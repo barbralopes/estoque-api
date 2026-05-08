@@ -1,0 +1,6 @@
+services:
+  mongo:
+    image: mongo
+    container_name: mongo-estoque
+    ports:
+      - "27017:27017"
