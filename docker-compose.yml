@@ -1,6 +1,11 @@
 services:
-  mongo:
-    image: mongo
-    container_name: mongo-estoque
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-estoque
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: estoque_db
+
     ports:
-      - "27017:27017"
+      - "3307:3307"
