@@ -6,4 +6,5 @@ public class Categoria
 
     public string Nome { get; set; } = null!;
 
+    public List<Produto>? Produtos { get; set; }
 }
