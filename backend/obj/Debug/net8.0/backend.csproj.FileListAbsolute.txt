@@ -26,7 +26,6 @@
 /home/blcoelho/Downloads/estoque-api/backend/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.backend.props
 /home/blcoelho/Downloads/estoque-api/backend/obj/Debug/net8.0/staticwebassets.pack.json
 /home/blcoelho/Downloads/estoque-api/backend/obj/Debug/net8.0/scopedcss/bundle/backend.styles.css
-/home/blcoelho/Downloads/estoque-api/backend/obj/Debug/net8.0/backend.csproj.Up2Date
 /home/blcoelho/Downloads/estoque-api/backend/obj/Debug/net8.0/backend.dll
 /home/blcoelho/Downloads/estoque-api/backend/obj/Debug/net8.0/refint/backend.dll
 /home/blcoelho/Downloads/estoque-api/backend/obj/Debug/net8.0/backend.pdb
@@ -110,3 +109,4 @@
 /home/blcoelho/Downloads/estoque-api/backend/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /home/blcoelho/Downloads/estoque-api/backend/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /home/blcoelho/Downloads/estoque-api/backend/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/home/blcoelho/Downloads/estoque-api/backend/obj/Debug/net8.0/backend.csproj.CopyComplete
