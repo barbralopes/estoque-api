@@ -1,5 +1,6 @@
 using backend.Configurations;
 using MongoDB.Driver;
+using backend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("MongoDbSettings"));
+
+builder.Services.AddSingleton<ProdutoService>();
+builder.Services.AddSingleton<CategoriaService>();
 
 builder.Services.AddSingleton<IMongoClient>(sp =>
 {
