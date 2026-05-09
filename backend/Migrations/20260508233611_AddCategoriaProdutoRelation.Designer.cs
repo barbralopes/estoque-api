@@ -11,8 +11,8 @@ using backend.Data;
 namespace backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260508182844_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260508233611_AddCategoriaProdutoRelation")]
+    partial class AddCategoriaProdutoRelation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,7 +64,25 @@ namespace backend.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoriaId");
+
                     b.ToTable("Produtos");
+                });
+
+            modelBuilder.Entity("backend.Models.Produto", b =>
+                {
+                    b.HasOne("backend.Models.Categoria", "Categoria")
+                        .WithMany("Produtos")
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Categoria");
+                });
+
+            modelBuilder.Entity("backend.Models.Categoria", b =>
+                {
+                    b.Navigation("Produtos");
                 });
 #pragma warning restore 612, 618
         }
