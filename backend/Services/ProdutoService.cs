@@ -32,10 +32,14 @@ public class ProdutoService
         return produto;
     }
 
-        public async Task DeleteAsync(Produto produto)
+        public async Task DeleteAsync(int id)
     {
-        _context.Produtos.Remove(produto);
+        var produto = await _context.Produtos.FindAsync(id);
 
+        if (produto == null)
+            return;
+
+        _context.Produtos.Remove(produto);
         await _context.SaveChangesAsync();
     }
 
