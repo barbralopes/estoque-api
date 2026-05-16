@@ -32,7 +32,7 @@ public class CategoriaService
         return await _context.Categorias.FindAsync(id);
     }
 
-        public async Task DeleteAsync(int id)
+    public async Task DeleteAsync(int id)
     {
         var categoria = await _context.Categorias.FindAsync(id);
 
